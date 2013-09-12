@@ -87,6 +87,11 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
  
 void terminal_putchar(char c)
 {
+if(c=='\n')
+{
+terminal_row++;
+return;
+}
 	terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
 	if ( ++terminal_column == VGA_WIDTH )
 	{
@@ -111,7 +116,6 @@ extern "C" /* Use C linkage for kernel_main. */
 void kernel_main()
 {
 	terminal_initialize();
-	/* Since there is no support for newlines in terminal_putchar yet, \n will
-	   produce some VGA specific character instead. This is normal. */
-	terminal_writestring("Hello, kernel World!\n");
+terminal_writestring("initializing...\n");
+
 }
