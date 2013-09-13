@@ -1,3 +1,4 @@
+PATH="/usr/cross:$PATH"
 All:
 i586-elf-as Kernel/boot.s -o Bin/Obj/boot.o
 i586-elf-g++ -c Kernel/kernel.cpp -o Bin/Obj/kernel.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
