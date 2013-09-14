@@ -1,2 +1,7 @@
 .386
-extrn _start
+extrn _bootUp
+.text
+bst:
+call _bootUp
+.rept:
+jmp .rept
