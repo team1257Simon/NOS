@@ -6,4 +6,4 @@
 #if defined(_cplusplus)
 extern "C"
 #endif
-void kernelMain();
+void kernel_main();
