@@ -1,8 +1,4 @@
-#if !defined(__cplusplus)
-#include <stdbool.h> /* C doesn't have booleans by default. */
-#endif
-#include <stddef.h>
-#include <stdint.h>
+#include "../kernel/kernel.h"
  
 /* Check if the compiler thinks if we are targeting the wrong operating system. */
 #if defined(__linux__)
