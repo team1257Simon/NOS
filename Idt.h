@@ -17,6 +17,7 @@ void _int6();
 void _int7();
 void _int8();
 void _int9();
+void _int9keyb();
 void _int10();
 void _int11();
 void _int12();
@@ -24,5 +25,4 @@ void _int13();
 void _int14();
 void _int15();
 void _int16();
-
 #endif
