@@ -1,3 +1,5 @@
+#ifndef KB_H
+#define KB_H
 void InitKeyboard();
 void keyb_handler();
 unsigned char getch();
@@ -10,3 +12,4 @@ char* kinput_buffer = (char*)0x90210;
 #define KSTAT_CSHIFT 4
 #define KSTAT_CALT 5
 int kstat_curr = KSTAT_NORMAL;
+#endif
