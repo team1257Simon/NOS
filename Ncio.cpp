@@ -92,10 +92,13 @@ return;
 	}
 }
  
-void nc_tprintf(const char* data)
+void nc_tprintf(char* data)
 {
 	size_t datalen = strlen(data);
 	for ( size_t i = 0; i < datalen; i++ )
 		terminal_putchar(data[i]);
+}
+vood nc_tscanf(char* buff)
+{
 }
  
