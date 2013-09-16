@@ -1,5 +1,5 @@
 .386
-extrn _bootUp
+extrn _stage2_main
 .text
 bst:
 cli
@@ -10,6 +10,6 @@ mov ss,ax
 mov ebp,0x7c00h
 mov esp,0x7c00h
 sti
-call _bootUp
+call _stage2_main
 .rept:
 jmp .rept
