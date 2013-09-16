@@ -4,7 +4,7 @@ void InitKeyboard();
 void keyb_handler();
 unsigned char getch();
 unsigned char kbhit();
-char* kinput_buffer = (char*)0x90210;
+char kinput_buffer[255];
 #define KSTAT_NORMAL 0
 #define KSTAT_SHIFT 1
 #define KSTAT_CTRL 2
