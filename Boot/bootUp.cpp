@@ -1,8 +1,0 @@
-
-extern "C" 
-{
-  void bootUp()
-  {
-    
-  }
-}
