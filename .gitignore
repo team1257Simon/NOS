@@ -2,6 +2,9 @@
 *.slo
 *.lo
 *.o
+*.bin
+bin/*
+isodir/*
 
 # Compiled Dynamic libraries
 *.so
