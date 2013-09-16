@@ -1,3 +1,6 @@
-extern "C" void bootUp
+extern "C" 
 {
+void bootUp()
+{
+}
 }
