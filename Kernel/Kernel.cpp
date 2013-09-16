@@ -5,7 +5,7 @@
 #error "You are not using a cross-compiler, you will most certainly run into trouble"
 #endif
  
-/* Hardware text mode color constants. */
+/* Hardware text mode color constants. 
 enum vga_color
 {
 	COLOR_BLACK = 0,
@@ -105,7 +105,7 @@ void terminal_writestring(const char* data)
 	for ( size_t i = 0; i < datalen; i++ )
 		terminal_putchar(data[i]);
 }
- 
+*/
 #if defined(__cplusplus)
 extern "C" /* Use C linkage for kernel_main. */
 #endif
