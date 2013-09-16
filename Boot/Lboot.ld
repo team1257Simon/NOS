@@ -1,0 +1,8 @@
+ENTRY(_bst)
+SECTIONS
+{
+BLOCK TEXT(512B) : ALIGN(512B)
+{
+*(.text)
+}
+}
