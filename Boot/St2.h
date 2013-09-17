@@ -3,3 +3,4 @@
 #include "../Keyboard.h"
 #include "../irq.h"
 extern void stage2_main();
+unsigned int irq_mask = 0xffff;
