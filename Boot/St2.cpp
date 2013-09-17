@@ -115,3 +115,11 @@ void Init8259()
   outb(M_IMR,0xff);
   outb(S_IMR,0xff);
 }
+void enable_irq(unsigned short irq_no)
+{
+irq_mask &= ~(1 << irq_no);
+if(irq_no >= 8)
+     irq_mask &= ~(1 << 2);
+outb(M_PIC + 1, irq_mask & 0xff);
+outb(S_PIC + 1, (irq_mask >> 8) & 0xff); 
+}
