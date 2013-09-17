@@ -251,5 +251,17 @@ void keyb_handler()
   {
    kstat_curr = (kstat_curr != KSTAT_NUM) ? KSTAT_NUM : 0;
   }
+  else if (key == 0x2a || key == 0x36)
+  {
+   kstat_curr = (kstat_curr != KSTAT_SHIFT) ? KSTAT_SHIFT;
+  }
+  else if (key == 0x1D)
+  {
+   kstat_curr = (kstat_curr != KSTAT_CTRL) ? KSTAT_CTRL;
+  }
+  else if (key == 0x38)
+  {
+   kstat_curr = (kstat_curr != KSTAT_ALT) ? KSTAT_ALT;
+  }
  }
 }
