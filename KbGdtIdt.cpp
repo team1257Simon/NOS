@@ -1,4 +1,4 @@
-#include "St2.h"
+#include "KbGdtIdt.h"
 int kbs=0;
 unsigned int scan2ascii_table[][8] = 
 {
