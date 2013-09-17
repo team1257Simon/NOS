@@ -98,7 +98,11 @@ void nc_tprintf(char* data)
 	for ( size_t i = 0; i < datalen; i++ )
 		terminal_putchar(data[i]);
 }
-vood nc_tscanf(char* buff)
+void nc_tscanf(char* buff)
 {
+while(kread_buffer[0] ==0);
+int i= 0;
+while(kread_buffer[i] !=0)
+buff[i] = kread_buffer[i++];
 }
  
