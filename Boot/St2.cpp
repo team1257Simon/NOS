@@ -102,3 +102,16 @@ unsigned int scan2ascii_table[][8] =
 {       0x5200, 0x30,   0,      0,      0x30,   0x5200, 0x30,           0x5200},
 {       0x5300, 0x2E,   0,      0,      0x2E,   0x5300, 0x2E,           0x5300}
 };
+void Init8259()
+{
+  outb(M_PIC,ICW1);
+  outb(S_PIC,ICW1);
+  outb(M_PIC+1,M_VEC);
+  outb(S_PIC+1,S_VEC);
+  outb(M_PIC+1,1<<2);
+  outb(S_PIC+1,2);
+  outb(M_PIC+1,ICW4);
+  outb(S_PIC+1,ICW4);
+  outb(M_IMR,0xff);
+  outb(S_IMR,0xff);
+}
