@@ -100,19 +100,19 @@ void nc_tprintf(char* data)
 }
 void nc_tscanf(char* buff)
 {
-while(kread_buffer[0] ==0);
-int i= 0;
-while(kread_buffer[i] !=0)
-buff[i] = kread_buffer[i++];
+	while(kread_buffer[0] ==0);
+	int i= 0;
+	while(kread_buffer[i] !=0)
+		buff[i] = kread_buffer[i++];
 }
 inline char inb(unsigned int port)
 {
-char ret;
-__asm__ volatile("inb %1,%0":"=g"(ret):=g(port));
-return ret;
+	char ret;
+	__asm__ volatile("inb %1,%0":"=g"(ret):=g(port));
+	return ret;
 }
 inline char outb(unsigned int port, unsigned char data)
 {
-__asm__ volatile("outb %0,%1"::"g"(data),"g"(port));
+	__asm__ volatile("outb %0,%1"::"g"(data),"g"(port));
 }
  
