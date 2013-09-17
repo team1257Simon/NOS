@@ -1,4 +1,5 @@
 #include "St2.h"
+int kbs=0;
 unsigned int scan2ascii_table[][8] = 
 {
 /*      ASCII - Shift - Ctrl -  Alt -   Num -   Caps -  Shift Caps -    Shift Num */
@@ -253,7 +254,11 @@ void keyb_handler()
   }
   else if (key == 0x2a || key == 0x36)
   {
-   kstat_curr = (kstat_curr != KSTAT_SHIFT) ? KSTAT_SHIFT;
+  if(kstat_curr == 4)
+   kstat_curr = 7;
+  else if(kstat_curr == 5)
+   kstat_curr = 6;
+   else kstat_curr = (kstat_curr != KSTAT_SHIFT) ? KSTAT_SHIFT;
   }
   else if (key == 0x1D)
   {
@@ -262,6 +267,11 @@ void keyb_handler()
   else if (key == 0x38)
   {
    kstat_curr = (kstat_curr != KSTAT_ALT) ? KSTAT_ALT;
+  }
+  else
+  {
+   kinput_buffer[kbs] = scan2ascii_table[key][kstat_curr];
+   kbs++;
   }
  }
 }
