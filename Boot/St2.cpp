@@ -123,3 +123,100 @@ if(irq_no >= 8)
 outb(M_PIC + 1, irq_mask & 0xff);
 outb(S_PIC + 1, (irq_mask >> 8) & 0xff); 
 }
+void disable_irq(unsigned short irq_no)
+{
+        irq_mask |= (1 << irq_no);
+        if((irq_mask & 0xFF00)==0xFF00)
+                irq_mask |= (1 << 2);
+        
+        outb(M_PIC+1, irq_mask & 0xFF);
+        outb(S_PIC+1, (irq_mask >> 8) & 0xFF);
+}
+void set_vector(void *handler, unsigned char interrupt, unsigned short control_major)
+{
+   unsigned short codesegment = 0x08;
+   asm volatile("movw %%cs,%0":"=g" (codesegment));
+
+   IDT[interrupt].gate.offset_low    = (unsigned short) (((unsigned long)handler)&0xffff);
+   IDT[interrupt].gate.selector      = codesegment;
+   IDT[interrupt].gate.access        = control_major;
+   IDT[interrupt].gate.offset_high   = (unsigned short) (((unsigned long)handler) >> 16);
+}
+struct
+{ 
+  unsigned short limit __attribute__ ((packed));
+  union DT_entry *idt  __attribute__ ((packed)); 
+} loadidt= { (256 * sizeof(union DT_entry) - 1), IDT };
+
+struct
+{
+        unsigned short limit __attribute__ ((packed));
+        union DT_entry *idt __attribute__ ((packed));
+} loadgdt = { (3 * sizeof(union DT_entry) - 1), GDT };
+
+void InitIDT()
+{
+        int count=0;
+
+        for(count = 16; count < 256; count++)
+                set_vector(int_null, count, D_PRESENT + D_INT + D_DPL3);
+
+        set_vector(_int0, 0, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int1, 1, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int2, 2, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int3, 3, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int4, 4, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int5, 5, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int6, 6, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int7, 7, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int8, 8, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int9, 9, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int10, 10, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int12, 12, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int13, 13, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int14, 14, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int15, 15, D_PRESENT +  D_INT + D_DPL3);
+        set_vector(_int16, 16, D_PRESENT +  D_INT + D_DPL3);
+
+        __asm__(
+                "lidt (%0)                 \n"   /* Load the IDT                */
+                "pushfl                    \n"   /* Clear the NT flag           */
+                "andl $0xffffbfff,(%%esp)  \n"
+                "popfl                     \n"
+                :
+                : "r" ((char *) &loadidt)
+        );
+        __asm__("sti");
+}
+inline void initGdt()
+{
+__asm__ volatile("lgdtl (loadgdt)");
+}
+void InitKeyboard()
+{
+        set_vector(_int9kb, M_VEC+1, D_PRESENT + D_INT + D_DPL3); /* IRQ1 Handler */
+enable_irq(1);
+}
+
+__asm__(
+   ".globl int_null        \n"
+   "int_null:              \n"
+   "   iret                \n" 
+);
+void _int0{while(1);}
+void _int1{while(1);}
+void _int2{while(1);}
+void _int3{while(1);}
+void _int4{while(1);}
+void _int5{while(1);}
+void _int6{while(1);}
+void _int7{while(1);}
+void _int8{while(1);}
+void _int9{while(1);}
+void _int10{while(1);}
+void _int11{while(1);}
+void _int12{while(1);}
+void _int13{while(1);}
+void _int14{while(1);}
+void _int15{while(1);}
+void _int16{while(1);}
