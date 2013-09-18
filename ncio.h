@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
-#include "KbGdtIdt.h"
+#include "Keyboard.h"
 void nc_tprintf(char*);
 void nc_tscanf(char*);
 void nc_tinit();
