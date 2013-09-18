@@ -1,4 +1,4 @@
-#include "../kernel/kernel.h"
+#include "kernel.h"
  
 /* Check if the compiler thinks if we are targeting the wrong operating system. */
 #if defined(__linux__)
