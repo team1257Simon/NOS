@@ -113,7 +113,7 @@ void nc_tscanf(char* buff)
 inline char inb(unsigned int port)
 {
 	char ret;
-	__asm__ volatile("inb %1,%0":"=g"(ret):=g(port));
+	__asm__ volatile("inb %1,%0":"=g"(ret),"=g"(port));
 	return ret;
 }
 inline char outb(unsigned int port, unsigned char data)
