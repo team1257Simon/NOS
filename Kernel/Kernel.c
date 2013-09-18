@@ -111,7 +111,10 @@ extern "C" /* Use C linkage for kernel_main. */
 #endif
 void kernel_main()
 {
-	nc_tinit;
-nprintf("initializing...\n");
+	nc_tinit()
+	nprintf("initializing...\n");
+	while(1)
+	{
+	}
 
 }
