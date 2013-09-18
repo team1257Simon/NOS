@@ -1,5 +1,5 @@
 .386
-extrn _stage2_main
+extrn _stage2_main:0x1000h
 .text
 bst:
 cli
