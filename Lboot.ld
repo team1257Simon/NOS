@@ -1,4 +1,4 @@
-ENTRY(_stage2Main)
+ENTRY(_stage2_main)
 SECTIONS
 {
   . = 1K
