@@ -204,23 +204,23 @@ __asm__(
    "int_null:              \n"
    "   iret                \n" 
 );
-void _int0{while(1);}
-void _int1{while(1);}
-void _int2{while(1);}
-void _int3{while(1);}
-void _int4{while(1);}
-void _int5{while(1);}
-void _int6{while(1);}
-void _int7{while(1);}
-void _int8{while(1);}
-void _int9{while(1);}
-void _int10{while(1);}
-void _int11{while(1);}
-void _int12{while(1);}
-void _int13{while(1);}
-void _int14{while(1);}
-void _int15{while(1);}
-void _int16{while(1);}
+void _int0(){while(1);}
+void _int1(){while(1);}
+void _int2(){while(1);}
+void _int3(){while(1);}
+void _int4(){while(1);}
+void _int5(){while(1);}
+void _int6(){while(1);}
+void _int7(){while(1);}
+void _int8(){while(1);}
+void _int9(){while(1);}
+void _int10(){while(1);}
+void _int11(){while(1);}
+void _int12(){while(1);}
+void _int13(){while(1);}
+void _int14(){while(1);}
+void _int15(){while(1);}
+void _int16(){while(1);}
 __asm__(".globl _int9kb \n"
 "_int9kb:               \n"
 "     pushw %ds         \n"
@@ -240,7 +240,7 @@ void keyb_handler()
  char key = inb(0x64);
  if(key & 0x80)
  {
-  if( key == 0x1D + 0x80 || key == 0x2a+ 0x80 || key == 0x36 + 0x80 || key == 0x38 + 0x80) kstat_curr = KSTAT_NORMAL;
+  if(( key == (0x1D + 0x80)) || key ==( 0x2a+ 0x80) || key ==( 0x36 + 0x80) || key == (0x38 + 0x80) ) kstat_curr = KSTAT_NORMAL;
  }
  else
  {
@@ -258,15 +258,15 @@ void keyb_handler()
    kstat_curr = 7;
   else if(kstat_curr == 5)
    kstat_curr = 6;
-   else kstat_curr = (kstat_curr != KSTAT_SHIFT) ? KSTAT_SHIFT;
+   else kstat_curr = (kstat_curr != KSTAT_SHIFT) ? KSTAT_SHIFT : 0;
   }
   else if (key == 0x1D)
   {
-   kstat_curr = (kstat_curr != KSTAT_CTRL) ? KSTAT_CTRL;
+   kstat_curr = (kstat_curr != KSTAT_CTRL) ? KSTAT_CTRL : 0;
   }
   else if (key == 0x38)
   {
-   kstat_curr = (kstat_curr != KSTAT_ALT) ? KSTAT_ALT;
+   kstat_curr = (kstat_curr != KSTAT_ALT) ? KSTAT_ALT : 0;
   }
   else
   {
