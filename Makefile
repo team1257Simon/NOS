@@ -1,6 +1,6 @@
 all:
 	export PATH="~/opt/cross/bin:~/Documents/nasm-2.10.07:${PATH}"
-	if [ ! -d Bin ]; 
+	if [ ! -d Bin ]; \
 	then \
 		mkdir Bin ; \
 		mkdir Bin/Obj ; \
