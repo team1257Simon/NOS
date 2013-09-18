@@ -101,13 +101,14 @@ void nc_tprintf(char* data)
 }
 void nc_tscanf(char* buff)
 {
-	while(kread_buffer[0] ==0);
+	while(kread_buffer[0] == 0) pushbuf();
 	int i= 0;
 	while(kread_buffer[i] !=0)
-		{
-		buff[i] = kread_buffer[i];
-		i++;
-		}
+	{
+	buff[i] = kread_buffer[i];
+	kread_buffer[i] = 0;
+	i++;
+	}
 }
 inline char inb(unsigned int port)
 {

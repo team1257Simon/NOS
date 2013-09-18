@@ -17,7 +17,7 @@ void _int6();
 void _int7();
 void _int8();
 void _int9();
-void _int9keyb();
+extern void _int9keyb();
 void _int10();
 void _int11();
 void _int12();

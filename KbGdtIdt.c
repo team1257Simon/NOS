@@ -285,3 +285,7 @@ void pushbuf()
  for( j = 0; j < kbs; j++) kread_buffer[j] = 0;
  kbs = 0;
 }
+unsigned char getch()
+{
+	return kinput_buffer[0];
+}

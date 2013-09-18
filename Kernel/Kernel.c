@@ -115,6 +115,13 @@ void kernel_main()
 	nprintf("initializing...\n");
 	while(1)
 	{
+		while(getch() == 0);
+		char c = getch();
+		char command[255];
+		if(c == '\n')
+		{
+			scanf(command);
+		}
 	}
 
 }
