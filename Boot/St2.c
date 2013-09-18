@@ -29,5 +29,6 @@ extern void stage2main()
  InitIdt();
  Init8259();
  InitKeyboard();
+ ea20();
  startKernel();
 }
