@@ -193,11 +193,7 @@ inline void initGdt()
 {
 __asm__ volatile("lgdtl (loadgdt)");
 }
-void InitKeyboard()
-{
-        set_vector(_int9kb, M_VEC+1, D_PRESENT + D_INT + D_DPL3); /* IRQ1 Handler */
-enable_irq(1);
-}
+
 
 __asm__(
    ".globl int_null        \n"
@@ -235,6 +231,11 @@ __asm__(".globl _int9kb \n"
 "     popa              \n"
 "     iret                "
 );
+void InitKeyboard()
+{
+        set_vector(_int9kb, M_VEC+1, D_PRESENT + D_INT + D_DPL3); /* IRQ1 Handler */
+enable_irq(1);
+}
 void keyb_handler()
 {
  char key = inb(0x64);
@@ -287,5 +288,5 @@ void pushbuf()
 }
 unsigned char getch()
 {
-	return kinput_buffer[0];
+	return kinput_buffer[kbs];
 }
