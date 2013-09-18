@@ -3,7 +3,7 @@
 void InitKeyboard();
 void keyb_handler();
 unsigned char getch();
-unsigned char pushbuf();
+void pushbuf();
 char kinput_buffer[255];
 char kread_buffer[255];
 #define KSTAT_NORMAL 0
