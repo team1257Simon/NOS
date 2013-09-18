@@ -23,7 +23,7 @@ __asm__(
 ".qqq:\n"
 "jmp .qqq"
 );
-extern void stage2main()
+extern void stage2_main()
 {
  InitGdt();
  InitIdt();
