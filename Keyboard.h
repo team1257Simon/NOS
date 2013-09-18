@@ -14,5 +14,8 @@ char kread_buffer[255];
 #define KSTAT_CAPS 5
 #define KSTAT_SHFTCAPS 6
 #define KSTAT_SHFTNUM 7
+#ifndef F
+#define F
 int kstat_curr = KSTAT_NORMAL;
+#endif
 #endif
