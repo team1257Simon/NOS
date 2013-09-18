@@ -95,7 +95,8 @@ return;
 void nc_tprintf(char* data)
 {
 	size_t datalen = strlen(data);
-	for ( size_t i = 0; i < datalen; i++ )
+	size_t i;
+	for ( i = 0; i < datalen; i++ )
 		terminal_putchar(data[i]);
 }
 void nc_tscanf(char* buff)
@@ -103,7 +104,10 @@ void nc_tscanf(char* buff)
 	while(kread_buffer[0] ==0);
 	int i= 0;
 	while(kread_buffer[i] !=0)
-		buff[i] = kread_buffer[i++];
+		{
+		buff[i] = kread_buffer[i];
+		i++;
+		}
 }
 inline char inb(unsigned int port)
 {

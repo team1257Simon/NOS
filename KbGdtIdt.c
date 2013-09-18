@@ -278,7 +278,10 @@ void keyb_handler()
 void pushbuf()
 {
  int i = 0;
- while(kinput_buffer[i] != 0) kread_buffer[i] = kinput_buffer[i++];
- for(int j = 0; j < kbs; j++) kread_buffer[j] = 0;
+ while(kinput_buffer[i] != 0) {kread_buffer[i] = kinput_buffer[i];
+ i++;
+ }
+ int j;
+ for( j = 0; j < kbs; j++) kread_buffer[j] = 0;
  kbs = 0;
 }
