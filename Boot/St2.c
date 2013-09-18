@@ -1,8 +1,8 @@
 #include "../KbGdtIdt.h"
 inline void ea20()
 {
- __asm__ volatile ("mov $0x2401h,%ax\n"
-"int 15");
+ __asm__ volatile ("mov $0x2401,%ax\n"
+"int 0x15");
 }
 extern void startKernel();
 __asm__(
@@ -13,7 +13,7 @@ __asm__(
 "mov %cr0,%eax\n"
 "or $1,%eax\n"
 "mov %eax,%cr0\n"
-"mov $0x10h,%ax\n"
+"mov $0x10,%ax\n"
 "mov %ax,%ds\n"
 "mov %ax,%es\n"
 "mov %ax,%fs\n"
