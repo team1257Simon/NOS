@@ -3,10 +3,11 @@ all:
 	if [ ! -d Bin ]; 
 	then \
 		mkdir Bin ; \
-	mkdir Bin/Obj ; \
-	mkdir Bin/Obj/Kernel ; \
-	mkdir Bin/Boot ; \
-	mkdir Bin/Kernel ; \
+		mkdir Bin/Obj; \
+		mkdir Bin/Obj/Boot ; \
+		mkdir Bin/Obj/Kernel ; \
+		mkdir Bin/Boot ; \
+		mkdir Bin/Kernel ; \
 	fi ;
 	~/opt/cross/bin/i586-elf-as Kernel/boot.s -o Bin/Obj/Kernel/boot.o
 	~/opt/cross/bin/i586-elf-gcc -c Kernel/kernel.c -o Bin/Obj/Kernel/kernel.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
