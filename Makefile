@@ -3,7 +3,7 @@ all:
 	if [ ! -d Bin ]; 
 	then \
 		mkdir Bin ; \
-		mkdir Bin/Obj; \
+		mkdir Bin/Obj ; \
 		mkdir Bin/Obj/Boot ; \
 		mkdir Bin/Obj/Kernel ; \
 		mkdir Bin/Boot ; \
