@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
+#define F
 #include "Keyboard.h"
 void nc_tprintf(char*);
 void nc_tscanf(char*);
