@@ -1,5 +1,11 @@
 all:
 	export PATH="~/opt/cross/bin:~/Documents/nasm-2.10.07:${PATH}"
+	if [ ! -d Bin ]; then mkdir Bin ;
+	if [ ! -d Bin/Obj ] ; then mkdir Bin/Obj ;
+	if [ ! -d Bin/Obj/Boot ] ; then mkdir Bin/Obj/Boot ;
+	if [ ! -d Bin/Obj/Kernel ] ; then mkdir Bin/Obj/Kernel ;
+	if [ ! -d Bin/Boot ] ; then mkdir Bin/Boot ;
+	if [ ! -d Bin/Kernel ] ; then mkdir Bin/Kernel ;
 	~/opt/cross/bin/i586-elf-as Kernel/boot.s -o Bin/Obj/Kernel/boot.o
 	~/opt/cross/bin/i586-elf-gcc -c Kernel/kernel.c -o Bin/Obj/Kernel/kernel.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
 	~/opt/cross/bin/i586-elf-gcc -c KbGdtIdt.c -o Bin/Obj/KbGdtIdt.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
