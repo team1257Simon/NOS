@@ -9,5 +9,5 @@ all:
 	~/opt/cross/bin/i586-elf-gcc -c Boot/St2.c -o Bin/Obj/Boot/St2.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
 	~/opt/cross/bin/i586-elf-gcc -c KbGdtIdt.c -o Bin/Obj/KbGdtIdt.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
 	~/opt/cross/bin/i586-elf-gcc -c Ncio.c -o Bin/Obj/Ncio.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
-	~/opt/cross/bin/i586-elf-gcc -T Lboot.ld -o Bin/Boot/St2.bin ffreestanding -O2 -nostdlib Bin/Obj/KbGdtIDt.o Bin/Obj/Ncio.o Bin/Obj/Boot/St2.o -lgcc
+	~/opt/cross/bin/i586-elf-gcc -T Lboot.ld -o Bin/Boot/St2.bin ffreestanding -O2 -nostdlib Bin/Obj/KbGdtIdt.o Bin/Obj/Ncio.o Bin/Obj/Boot/St2.o -lgcc
 	
