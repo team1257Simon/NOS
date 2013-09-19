@@ -238,7 +238,7 @@ enable_irq(1);
 }
 void keyb_handler()
 {
- char key = inb(0x64);
+ int key = inb(0x64);
  if(key & 0x80)
  {
   if(( key == (0x1D + 0x80)) || key ==( 0x2a+ 0x80) || key ==( 0x36 + 0x80) || key == (0x38 + 0x80) ) kstat_curr = KSTAT_NORMAL;
