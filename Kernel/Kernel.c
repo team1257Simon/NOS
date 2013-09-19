@@ -112,7 +112,7 @@ extern "C" /* Use C linkage for kernel_main. */
 void kernel_main()
 {
 	nc_tinit();
-	nprintf("initializing...\n");
+	nc_tprintf("initializing...\n");
 	while(1)
 	{
 		while(getch() == 0);
@@ -120,7 +120,7 @@ void kernel_main()
 		char command[255];
 		if(c == '\n')
 		{
-			scanf(command);
+			nc_tscanf(command);
 		}
 	}
 
