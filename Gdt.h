@@ -38,7 +38,7 @@
  *     ...
  *  };
  */
-
+/*dfjkdfls*/
 
 /*
  *  Each descriptor should have exactly one of next 8 codes to define the
@@ -118,7 +118,7 @@ struct x86_gate {
  *  table;  It can contain a normal descriptor, a gate descriptor, or any
  *  64-bit number (for defining the dummy entries, if neccessary.)
  */
-
+inline void InitGDT();
 union DT_entry {
    struct x86_desc desc;     /* Normal descriptor */
    struct x86_gate gate;     /* Gate descriptor   */
@@ -136,4 +136,8 @@ union DT_entry {
                                                ((control & 0xff) >> 4), (base >> 24)}}
 #define gate_desc(offset, selector, control) {gate: {(offset & 0xffff), selector, \
                                                      (control+D_PRESENT), (offset >> 16) }}
+<<<<<<< HEAD
+#endif
+=======
                                                                                                                                     #endif
+>>>>>>> branch 'master' of https://github.com/team1257Simon/NOS.git

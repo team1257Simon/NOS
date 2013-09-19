@@ -53,9 +53,10 @@ void nc_tinit()
 	terminal_column = 0;
 	terminal_color = make_color(COLOR_LIGHT_GREY, COLOR_BLACK);
 	terminal_buffer = (uint16_t*) 0xB8000;
-	for ( size_t y = 0; y < VGA_HEIGHT; y++ )
+	size_t x,y;
+	for ( y = 0; y < VGA_HEIGHT; y++ )
 	{
-		for ( size_t x = 0; x < VGA_WIDTH; x++ )
+		for (  x = 0; x < VGA_WIDTH; x++ )
 		{
 			const size_t index = y * VGA_WIDTH + x;
 			terminal_buffer[index] = make_vgaentry(' ', terminal_color);
@@ -113,11 +114,15 @@ void nc_tscanf(char* buff)
 inline char inb(unsigned int port)
 {
 	char ret;
+<<<<<<< HEAD
+	__asm__ volatile("inb %%dx,%%al":"=a"(port),"=d"(ret));
+=======
 	__asm__ volatile("inb %1,%0":"=g"(ret),"=g"(port));
+>>>>>>> branch 'master' of https://github.com/team1257Simon/NOS.git
 	return ret;
 }
-inline char outb(unsigned int port, unsigned char data)
+inline void outb(unsigned int port, unsigned char data)
 {
-	__asm__ volatile("outb %0,%1"::"g"(data),"g"(port));
+	__asm__ volatile("outb %%al,%%dx"::"d"(data),"a"(port));
 }
  

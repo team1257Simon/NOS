@@ -1,17 +1,17 @@
 ENTRY(_stage2_main)
 SECTIONS
 {
-  . = 1K
-  .text BLOCK(10K) : ALIGN(10K)
-  {
-  	*(.text)
-  }
-  .rodata BLOCK(10K) : ALIGN(10K)
-  {
-  	*(.rodata)
-  }
-  .data BLOCK(10K) : ALIGN(10K)
-  {
-  	*(.data)
-  }
+	. = 1K;
+	.text BLOCK(4K) : ALIGN(4K)
+	{
+		*(.text)
+	}
+	.rodata BLOCK(4K) : ALIGN(4K)
+	{
+		*(.rodata)
+	}
+	.data BLOCK(4K) : ALIGN(4K)
+	{
+		*(.data)
+	}
 }

@@ -1,8 +1,15 @@
+#define _ST2_C
+#define _KSTAT_CURR
 #include "../KbGdtIdt.h"
 /*inline void ea20()
 {
+<<<<<<< HEAD
+ __asm__ volatile ("mov $1,%al\n"
+"out %al,0x92");
+=======
  __asm__ volatile ("mov $0x2401,%ax\n"
 "int 0x15");
+>>>>>>> branch 'master' of https://github.com/team1257Simon/NOS.git
 }*/
 extern void startKernel();
 __asm__(
@@ -22,12 +29,16 @@ __asm__(
 ".qqq:\n"
 "jmp .qqq"
 );
-extern void stage2_main()
+extern void _stage2_main()
 {
- InitGdt();
- InitIdt();
+ InitGDT();
+ InitIDT();
  Init8259();
  InitKeyboard();
+<<<<<<< HEAD
+// ea20();
+=======
  //ea20();
+>>>>>>> branch 'master' of https://github.com/team1257Simon/NOS.git
  startKernel();
 }

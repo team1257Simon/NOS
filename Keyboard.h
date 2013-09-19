@@ -14,8 +14,13 @@ char kread_buffer[255];
 #define KSTAT_CAPS 5
 #define KSTAT_SHFTCAPS 6
 #define KSTAT_SHFTNUM 7
+<<<<<<< HEAD
+#ifndef _KSTAT_CURR
+#define _KSTAT_CURR
+=======
 #ifndef F
 #define F
+>>>>>>> branch 'master' of https://github.com/team1257Simon/NOS.git
 int kstat_curr = KSTAT_NORMAL;
 #endif
 #endif

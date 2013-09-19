@@ -1,5 +1,7 @@
 #ifndef IRQ_H
 #define IRQ_H
+#define _KB_H
+#include "ncio.h"
 void Init8259();
 void enable_irq(unsigned short irq_num);
 void disable_irq(unsigned short irq_num);

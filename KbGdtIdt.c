@@ -189,7 +189,7 @@ void InitIDT()
         );
         __asm__("sti");
 }
-inline void initGdt()
+inline void InitGDT()
 {
 __asm__ volatile("lgdtl (loadgdt)");
 }
