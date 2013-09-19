@@ -15,5 +15,5 @@ sti
 jmp 0x1000
 .rept:
 jmp .rept
-db 0x55
-db 0xAA
+TIMES 510-($-$$) DB 0
+dw 0x55AA
