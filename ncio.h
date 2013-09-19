@@ -3,10 +3,7 @@
 #define _KSTAT_CURR
 #include <stddef.h>
 #include <stdint.h>
-<<<<<<< HEAD
-=======
 #define F
->>>>>>> branch 'master' of https://github.com/team1257Simon/NOS.git
 #include "Keyboard.h"
 void nc_tprintf(char*);
 void nc_tscanf(char*);

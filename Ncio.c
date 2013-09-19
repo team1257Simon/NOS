@@ -114,11 +114,9 @@ void nc_tscanf(char* buff)
 inline char inb(unsigned int port)
 {
 	char ret;
-<<<<<<< HEAD
+
 	__asm__ volatile("inb %%dx,%%al":"=a"(port),"=d"(ret));
-=======
-	__asm__ volatile("inb %1,%0":"=g"(ret),"=g"(port));
->>>>>>> branch 'master' of https://github.com/team1257Simon/NOS.git
+
 	return ret;
 }
 inline void outb(unsigned int port, unsigned char data)

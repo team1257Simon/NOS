@@ -35,10 +35,6 @@ extern void _stage2_main()
  InitIDT();
  Init8259();
  InitKeyboard();
-<<<<<<< HEAD
-// ea20();
-=======
  //ea20();
->>>>>>> branch 'master' of https://github.com/team1257Simon/NOS.git
  startKernel();
 }

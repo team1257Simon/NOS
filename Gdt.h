@@ -1,4 +1,4 @@
-#ifndef __GDT_H
+#if !defined(__GDT_H)
 #define __GDT_H
 
 /*
@@ -136,8 +136,4 @@ union DT_entry {
                                                ((control & 0xff) >> 4), (base >> 24)}}
 #define gate_desc(offset, selector, control) {gate: {(offset & 0xffff), selector, \
                                                      (control+D_PRESENT), (offset >> 16) }}
-<<<<<<< HEAD
 #endif
-=======
-                                                                                                                                    #endif
->>>>>>> branch 'master' of https://github.com/team1257Simon/NOS.git
