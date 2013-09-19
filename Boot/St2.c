@@ -9,7 +9,6 @@ __asm__(
 ".globl startKernel\n"
 "startKernel:\n"
 "cli \n"
-"extrn _start:0x1000000\n"
 "mov %cr0,%eax\n"
 "or $1,%eax\n"
 "mov %eax,%cr0\n"
@@ -19,7 +18,7 @@ __asm__(
 "mov %ax,%fs\n"
 "mov %ax,%gs\n"
 "mov %ax,%ss\n"
-"call _start\n"
+"jmp 0x1000000\n"
 ".qqq:\n"
 "jmp .qqq"
 );
