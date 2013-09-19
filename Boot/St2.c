@@ -1,9 +1,9 @@
 #include "../KbGdtIdt.h"
-inline void ea20()
+/*inline void ea20()
 {
  __asm__ volatile ("mov $0x2401,%ax\n"
 "int 0x15");
-}
+}*/
 extern void startKernel();
 __asm__(
 ".globl startKernel\n"
@@ -29,6 +29,6 @@ extern void stage2_main()
  InitIdt();
  Init8259();
  InitKeyboard();
- ea20();
+ //ea20();
  startKernel();
 }
